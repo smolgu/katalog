@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package user;
+
+import "google/protobuf/timestamp.proto";
+
+enum Period { Zero = 0; Two = 2; Four = 4; Five = 5;};
+enum TrainingType {
+  Bachelor = 0;
+  Master = 1;
+  Postgraduate = 2;
+};
+
+message Group {
+  bytes id = 1;
+  bytes training_direction_id = 2;
+  int64 training_direction_number = 3;
+  int64 start_year = 4;
+  Period period = 5;
+  TrainingType training_type = 6;
+
+  google.protobuf.Timestamp created = 7;
+  google.protobuf.Timestamp updated = 8;
+  google.protobuf.Timestamp deleted = 9;
+}
+
+message TrainingDirection {
+  bytes id = 1;
+  string name = 2;
+  string short_name = 3;
+
+  google.protobuf.Timestamp created = 4;
+  google.protobuf.Timestamp updated = 5;
+  google.protobuf.Timestamp deleted = 6;
+}

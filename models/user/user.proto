@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package user;
+
+import "google/protobuf/timestamp.proto";
+
+message User {
+
+  enum Sex { Neuter = 0; Female = 1; Male = 2; };
+  enum Status { Study = 0; Deducted =1; };
+  enum Role { Guest = 0; Student = 1; Guru = 2; Stuff = 4; }
+
+  bytes id = 1;
+  int64 employee_id = 2;
+  int64 library_id = 3;
+
+  Status status = 4;
+
+  string first_name = 5;
+  string last_name = 6;
+  string patronymic = 7;
+  string username = 8;
+
+  Sex sex = 9;
+
+  bytes group_id = 10;
+
+  string avatar_url = 11;
+  string phone = 12;
+  string home_addres = 13;
+
+  int64 vk_id = 14;
+  string vk_display_name = 16;
+  string instagram_username = 17;
+
+  Role role = 18;
+
+  bytes Payload = 19;
+
+  google.protobuf.Timestamp created = 20;
+  google.protobuf.Timestamp updated = 21;
+  google.protobuf.Timestamp deleted = 22;
+
+}
+
+message Users {
+  repeated User users = 1;
+}
